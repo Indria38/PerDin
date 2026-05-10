@@ -24,8 +24,12 @@
         </div>
 
         <div class="page">
-            <a href="/logout" style="text-align: right;">Log Out</a>
-            {{ $slot }}
+            <div class="page-header">
+                <a href="/logout">Log Out</a>
+            </div>
+            <div class="page-content">
+                {{ $slot }}
+            </div>
         </div>
     @endif
 

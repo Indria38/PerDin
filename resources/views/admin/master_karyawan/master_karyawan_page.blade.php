@@ -2,33 +2,39 @@
 
 <title>Master Karyawan</title>
 
-<div>
+<div class="master-karyawan-header">
     <h1>Master Karyawan</h1>
 </div>
 
-<div>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nama Karyawan</th>
-                <th>Posisi</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($karyawan as $row)
+<div class="master-karyawan-table-container">
+    @if(count($karyawan) > 0)
+        <table class="master-karyawan-table">
+            <thead>
                 <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $row->nama_pengguna }}</td>
-                    <td>{{ $row->posisi }}</td>
-                    <td>
-                        <a href="master_karyawan/edit/{{ $row->id }}">edit</a>
-                    </td>
+                    <th>#</th>
+                    <th>Nama Karyawan</th>
+                    <th>Posisi</th>
+                    <th>Aksi</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($karyawan as $row)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $row->nama_pengguna }}</td>
+                        <td>{{ $row->posisi }}</td>
+                        <td>
+                            <a href="master_karyawan/edit/{{ $row->id }}" class="master-karyawan-btn-edit">edit</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <div class="master-karyawan-empty">
+            Belum ada data karyawan
+        </div>
+    @endif
 </div>
 
 </x-layout>

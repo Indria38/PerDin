@@ -2,13 +2,13 @@
 
 <title>PerDinKu</title>
 
-<div>
+<div class="perdinku-header">
     <h1>PerDinKu</h1>
-    <a href="/tambah_perdin">+ Tambah Perdin</a>
+    <a href="/tambah_perdin" class="perdinku-btn-tambah">+ Tambah Perdin</a>
 </div>
 
-<div>
-    <table>
+<div class="perdinku-table-container">
+    <table class="perdinku-table">
         <thead>
             <tr>
                 <th>#</th>
@@ -32,7 +32,7 @@
                         {{ $row->tanggal_awal.' -> '.$row->tanggal_akhir.' ('.$diffDays.' hari)' }}
                     </td>
                     <td>{{ $row->keterangan }}</td>
-                    <td>{{ $row->status }}</td>
+                    <td class="{{ strtolower($row->status) }}">{{ $row->status }}</td>
                 </tr>
             @endforeach
         </tbody>
